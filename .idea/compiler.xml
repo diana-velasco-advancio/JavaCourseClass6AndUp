@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="test" />
         <module name="JavaSeleniumCourse" />
+        <module name="JavaCourseFinalFinal" />
         <module name="JavaSeleniumCourse-class6Guerkin" />
       </profile>
     </annotationProcessing>

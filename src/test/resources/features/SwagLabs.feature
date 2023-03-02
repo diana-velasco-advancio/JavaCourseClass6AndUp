@@ -44,8 +44,8 @@
       Then Just wait 5000
       Then I add all products to the cart
       Then Just wait 5000
-      #Then I click on Cart button
-      #Then I validate all products are on the cart
+      Then I click on Cart button
+      Then I validate all products are on the cart
 
 #Comment
     #Comment to verify

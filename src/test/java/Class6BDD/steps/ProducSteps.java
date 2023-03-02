@@ -3,6 +3,9 @@ package Class6BDD.steps;
 import Class6BDD.PO.ProductsPo;
 import Class6BDD.driver.DriverManager;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class ProducSteps extends DriverManager {
 
@@ -26,6 +29,11 @@ public class ProducSteps extends DriverManager {
     @Then ("I add all products to the cart")
     public void iAddAllProducts(){
             productsPo.AddProductsToCart();
+    }
+
+    @Then("I click on Cart button")
+    public void iClickOnCartButton() {
+        productsPo.clickCartbutton();
     }
 }
 

@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsPo {
@@ -23,7 +24,8 @@ public class ProductsPo {
         PageFactory.initElements(this.driver, this); // Needed to use the @FindByMethods
     }
 
-
+    @FindBy(xpath = "/html/body/div/div/div/div[1]/div[1]/div[3]/a")
+    WebElement CartButton;
     @FindBy(xpath = "//div[contains(text(), 'Sauce Labs Backpack')]")
     WebElement backpackHeaderLabel;
     @FindBy(id = "react-burger-menu-btn")
@@ -36,11 +38,13 @@ public class ProductsPo {
     @FindBy(xpath = "//*[@id=\"remove-sauce-labs-backpack\"]")
     WebElement RemoveButton;
 
-    @FindBy(xpath = "//*[@class=\"inventory_list\"]")
-    WebElement ProductList;
-
     @FindBys({ @FindBy(className = "btn_inventory")})
     List<WebElement> ProductItem;
+
+    @FindBys({@FindBy(className = "inventory_item_name")})
+    List<WebElement> ProductNameWebElement;
+
+    List<String> ProductName = new ArrayList<String>();
 
     public void clickBurgerButton() {
         this.burgerCornerButton.click();
@@ -67,6 +71,9 @@ public class ProductsPo {
         if(null != ProductItem && ProductItem.size() > 0){
             for(int i = 0; i<ProductItem.size(); i++){
                 WebElement buttonItem = ProductItem.get(i);
+                WebElement labelProduct = ProductNameWebElement.get(i);
+                ProductName.add(labelProduct.getText());
+                System.out.println("Product Added: " + ProductName.get(i) );
                 buttonItem.click();
             }
         }
@@ -74,6 +81,7 @@ public class ProductsPo {
     }
 
 
-
-
+    public void clickCartbutton() {
+        this.CartButton.click();
+    }
 }
